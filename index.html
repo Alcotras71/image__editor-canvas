@@ -7,6 +7,8 @@
   <link type="text/css" href="https://uicdn.toast.com/tui-color-picker/v2.2.6/tui-color-picker.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lobster&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link type="text/css" href="css/slick.css" rel="stylesheet">
+  <link type="text/css" href="css/slick-theme.css" rel="stylesheet">
   <link type="text/css" href="css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -34,7 +36,7 @@
         </section>
         <section class="main__bottom">
           <div class="menu-item add-happy hide">
-            <button class="menu-button add-happy__btn"><img src="/img/masks/mask.png" alt="addMask"></button>
+            <button class="menu-button add-happy__btn big-happy"><img src="/img/masks/mask.png" alt="addMask"></button>
             <div class="submenu add-happy__masks">
               <ul class="add-happy__masks-menu">
                 <li class="active-mask" id="masks">МАСКИ</li>
@@ -117,8 +119,12 @@
             <h2 class="menu__title">Текст</h2>
             <div class="text__wrapper">
               <div class="text__family">
-                <h3 class="menu__subtitle sub__left">Выбрать шрифт:</h3>
-                <div class="text__family-dropdown">
+                <div class="text__family-mobile mobile__text-style">
+                  <div class="family-mobile__btn"><img src="/img/mobile/icons/text_style.svg" alt="text_style"></div>
+                  <h3 class="family-mobile__title">Стиль</h3>
+                </div>
+                <h3 class="menu__subtitle sub__left text__lg">Выбрать шрифт:</h3>
+                <div class="text__family-dropdown text__mobile-changes text__mobile-style">
                   <button class="btn-text-fam pac">Pacifico</button>
                   <ul class="text__family-drop">
                     <li class="btn-text-family pac active-family" data-style-type="pac">Pacifico</li>
@@ -128,26 +134,42 @@
                     <li class="btn-text-family beb last" data-style-type="beb">Bebas Neue</li>
                  </ul>
                 </div>
-                <input id="input-font-size-range" type="range" min="10" max="100" value="50">
+                <input class="text__mobile-changes text__mobile-style" id="input-font-size-range" type="range" min="10" max="100" value="50">
               </div>
               <div class="text__decoration">
+                <div class="text__family-mobile mobile__decoration">
+                  <div class="family-mobile__btn">Aa</div>
+                  <h3 class="family-mobile__title">Начертание</h3>
+                </div>
                 <h3 class="menu__subtitle">Начертание</h3>
-                <div class="text__dec">
-                  <button class="btn-text-style" data-style-type="n"><img src="/img/icons/normal.svg" alt="normal"></button>
-                  <button class="btn-text-style" data-style-type="b"><img src="/img/icons/bold.svg" alt="bold"></button>
-                  <button class="btn-text-style" data-style-type="i"><img src="/img/icons/cursive.svg" alt="cursive"></button>
+                <div class="text__dec text__mobile-changes">
+                  <div class="text__dec-flex">
+                    <button class="btn-text-style" data-style-type="c"><img src="/img/icons/cursive.svg" alt="cursive"></button>
+                    <button class="btn-text-style" data-style-type="b"><img src="/img/icons/bold.svg" alt="bold"></button>
+                    <button class="btn-text-style" data-style-type="u"><img src="/img/icons/underline.svg" alt="underline"></button>
+                  </div>
                 </div>
               </div>
               <div class="text__color">
+                <div class="text__family-mobile mobile__color">
+                  <div class="family-mobile__btn"><img src="/img/mobile/icons/text_color.svg" alt="text_color"></div>
+                  <h3 class="family-mobile__title">Цвет</h3>
+                </div>
                 <h3 class="menu__subtitle">Цвет шрифта</h3>
-                <div id="tui-text-color-picker"></div>
+                <div class="text__mobile-changes color__picker" id="tui-text-color-picker"></div>
               </div>
               <div class="text__align">
+                <div class="text__family-mobile mobile__align">
+                  <div class="family-mobile__btn"><img src="/img/mobile/icons/text_align.svg" alt="text_align"></div>
+                  <h3 class="family-mobile__title">Положение</h3>
+                </div>
                 <h3 class="menu__subtitle">Выравнивание</h3>
-                <div>
-                  <button class="btn-text-style" data-style-type="l"><img src="/img/icons/taleft.svg" alt="taleft"></button>
-                  <button class="btn-text-style" data-style-type="c"><img src="/img/icons/tacenter.svg" alt="tacenter"></button>
-                  <button class="btn-text-style" data-style-type="r"><img src="/img/icons/taright.svg" alt="taright"></button>
+                <div class="text__mobile-changes align__mobile">
+                    <div class="align__mobile-flex">
+                    <button class="btn-text-style" data-style-type="l"><img src="/img/icons/taleft.svg" alt="taleft"></button>
+                    <button class="btn-text-style" data-style-type="c"><img src="/img/icons/tacenter.svg" alt="tacenter"></button>
+                    <button class="btn-text-style" data-style-type="r"><img src="/img/icons/taright.svg" alt="taright"></button>
+                 </div>
                 </div>
               </div>
             </div>
@@ -171,16 +193,35 @@
         </div>
       </div>
     </aside>
+    <div class="mobile-happy__img hide">
+      <img id="btn-add-santa-mob" src="/img/masks/santa.png" alt="santa">
+      <img id="btn-add-nose-mob" src="/img/masks/nose.png" alt="nose">              
+      <img id="btn-add-snowman-mob" src="/img/masks/snowman.png" alt="snowman">
+      <img id="btn-add-tree-mob" src="/img/masks/tree.png" alt="tree">
+      <img id="btn-add-santaman-mob" src="/img/characters/santaman.png" alt="santaman">
+      <img id="btn-add-snowmanfull-mob" src="/img/characters/snowmanfull.png" alt="snowmanfull">
+      <img id="btn-add-bear-mob" src="/img/characters/bear.png" alt="bear">
+      <img id="btn-add-deer-mob" src="/img/characters/deer.png" alt="deer">
+      <img id="btn-add-bell-mob" src="/img/subjects/bell.png" alt="bell">
+      <img id="btn-add-flags-mob" src="/img/subjects/flags.png" alt="flags">
+      <img id="btn-add-gift-mob" src="/img/subjects/gift.png" alt="gift">
+      <img id="btn-add-crhisttree-mob" src="/img/subjects/crhisttree.png" alt="crhisttree">
+      <img id="btn-add-scarf-mob" src="/img/elements/scarf.png" alt="scarf">
+      <img id="btn-add-text-mob" src="/img/elements/text.png" alt="text">
+      <img id="btn-add-bezel-mob" src="/img/elements/bezel.png" alt="bezel">
+      <img id="btn-add-snowflake-mob" src="/img/elements/snowflake.png" alt="snowflake">
+    </div>
     <footer class="footer">
       <ul class="menu menu__bottom">
-        <li class="menu-item disabled undo" id="btn-undo"><img src="/img/icons/undo.svg" alt="undo"></li>
-        <li class="menu-item disabled redo" id="btn-redo"><img src="/img/icons/redo.svg" alt="redo"></li>
-        <li class="menu-item disabled" id="btn-remove-active-object"><img src="/img/icons/trash.svg" alt="trash"></li>
+        <li class="menu-item top-1 disabled undo" id="btn-undo"><img src="/img/icons/undo.svg" alt="undo"></li>
+        <li class="menu-item top-2 disabled redo" id="btn-redo"><img src="/img/icons/redo.svg" alt="redo"></li>
+        <li class="menu-item top-3 disabled" id="btn-remove-active-object"><img src="/img/icons/trash.svg" alt="trash"></li>
         <li class="menu-item disabled" id="btn-clear-objects"><img src="/img/icons/trash_all.svg" alt="trash_all"></li>
-        <li class="menu-item disabled btn-crop"><img class="footer-crop" src="/img/icons/crop_rotate.svg" alt="croprot"></li>
+        <li class="menu-item disabled btn-crop" id="btn-crop-rotate"><img class="footer-crop" src="/img/icons/crop_rotate.svg" alt="croprot"></li>
         <li class="menu-item disabled" id="btn-image-filter"><img class="footer-filter" src="/img/icons/filters.svg" alt="filters"></li>
         <li class="menu-item disabled" id="btn-text"><img class="footer-text" src="/img/icons/text.svg" alt="text"></li>
         <li class="menu-item disabled" id="btn-mask-filter"><img src="/img/icons/eraser.svg" alt="eraser"></li>
+        <li class="menu-item disabled hide" id="hidden-li"><img src="/img/icons/eraser.svg" alt="eraser"></li>
       </ul>                                              
     </footer>
     <div class="hide">
@@ -194,10 +235,13 @@
   </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.0/fabric.js"></script>
   <script type="text/javascript" src="https://uicdn.toast.com/tui.code-snippet/v1.5.0/tui-code-snippet.min.js"></script>
-  <script type="text/javascript" src="js/tui-color-picker.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="js/tui-color-picker.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
   <script type="text/javascript" src="js/tui-image-editor.js"></script>
+  <script type="text/javascript" src="js/slick.min.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/mobile.js"></script>
 </body>
 </html>

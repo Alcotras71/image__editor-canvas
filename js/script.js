@@ -106,9 +106,20 @@ var imageEditor = new tui.ImageEditor('.tui-image-editor', {
     cssMaxHeight: 450,
     selectionStyle: {
         cornerSize: 10,
-        rotatingPointOffset: 70
+        rotatingPointOffset: 50
     }
 });
+
+if(window.matchMedia('(max-width: 768px)').matches){
+  var imageEditor = new tui.ImageEditor('.tui-image-editor', {
+    cssMaxWidth: document.documentElement.clientWidth,
+    cssMaxHeight: document.documentElement.clientHeight,
+    selectionStyle: {
+        cornerSize: 40,
+        rotatingPointOffset: 70
+  }
+});
+}
 
 // Color picker for free drawing
 var brushColorpicker = tui.colorPicker.create({
@@ -649,10 +660,10 @@ $('.btn-text-style, .btn-text-family').on('click', function(e) { // eslint-disab
     e.stopPropagation();
 
     switch (styleType) {
-        case 'n':
-            styleObj = {fontWeight: '400'};
+        case 'u':
+            styleObj = {textDecoration: 'underline'};
             break;
-        case 'i':
+        case 'c':
             styleObj = {fontStyle: 'italic'};
             break;
         case 'b':
@@ -1028,7 +1039,7 @@ $('.main__upload').on('click', () => {
   $('.add-happy').removeClass('hide');
   $('.aside').removeClass('hide');
   if ($mainTuiCanva.hasClass('active')){
-    $('.menu-item').removeClass('disabled');
+    $('.menu-item, .add-happy__aside-btn').removeClass('disabled');
     $('.undo').addClass('disabled');
     $('.redo').addClass('disabled');
   }
@@ -1040,7 +1051,7 @@ $('.add-happy__aside-btn').hide();
 $('.add-happy__btn').each(function(){
   $(this).on('click', () => {
     $('.add-happy__masks').show();
-    $('.add-happy__btn').hide();
+    $('.big-happy').hide();
     $('#crop-sub-menu').hide();
     $('#image-filter-sub-menu').hide();
     $('#text-sub-menu').hide();
@@ -1106,6 +1117,7 @@ $('.btn-crop').each(function(){
     $('.add-happy__btn').hide();
     $('.add-happy__aside-btn').show();
     $('.add-happy__masks').hide();
+    $('.mobile-happy__img').addClass('hide');
   });
 });
 
@@ -1113,12 +1125,14 @@ $('#btn-image-filter').on('click', () => {
   $('.add-happy__btn').hide();
   $('.add-happy__aside-btn').show();
   $('.add-happy__masks').hide();
+  $('.mobile-happy__img').addClass('hide');
 });
 
 $('#btn-text').on('click', () => {
   $('.add-happy__btn').hide();
   $('.add-happy__aside-btn').show();
   $('.add-happy__masks').hide();
+  $('.mobile-happy__img').addClass('hide');
 });
 
 
@@ -1159,3 +1173,6 @@ $('.footer-text').on('click', function() {
   $('.footer-filter').attr('src', '/img/icons/filters.svg');
   $('.footer-crop').attr('src', '/img/icons/crop_rotate.svg');
 })
+
+
+$('.text__family-mobile').hide();
